@@ -1,14 +1,20 @@
 import os
+import sys  
 import requests
 
+try:
+    from modules import commands, functions
+    command = commands.command
+    func1 = functions.func1
 
-modules = [
-    'https://raw.githubusercontent.com/Jacks1002/StarTool/refs/heads/main/modules/commands.py',
-    'https://raw.githubusercontent.com/Jacks1002/StarTool/refs/heads/main/modules/functions.py'
-]
-for module in modules:
-    result = requests.get(module)
-    exec(result.text)
+except ImportError:
+    modules = [
+        'https://raw.githubusercontent.com/Jacks1002/StarTool/refs/heads/main/modules/commands.py',
+        'https://raw.githubusercontent.com/Jacks1002/StarTool/refs/heads/main/modules/functions.py'
+    ]
+    for module in modules:
+        result = requests.get(module)
+        exec(result.text)
 
 def pause():
     os.system('pause>nul')

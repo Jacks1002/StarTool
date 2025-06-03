@@ -17,7 +17,7 @@ def command(cmd: str):
         return 'clear'
     
     elif cmd[0] == '/version' and len(cmd) == 1:
-        version = 'Beta-1.0.0'
+        version = 'Beta-1.0.1'
         print(f"StarTool version: \033[92;1m{version}")
 
     else:

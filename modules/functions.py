@@ -31,6 +31,9 @@ def func1():
         cmd += "$lang.InputMethodTips.Add('0404:{B115690A-EA02-48D5-A231-E3578D2FDF80}{B2F9C502-1742-11D4-9790-0080C882687E}');"
 
     cmd += "Set-WinUserLanguageList -LanguageList $lang -Force"
+    if n == 0 and not(addHK):
+        print("\033[91;1m您必須至少選擇一個!")
+        return
 
     os.system(f"powershell -command \"{cmd}\"")
     print("\033[92;1mInput Method Enhanced successfully.")
